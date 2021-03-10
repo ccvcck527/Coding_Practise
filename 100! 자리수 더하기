@@ -23,6 +23,7 @@ namespace Solution
                 {
                     if (numArr[i] >= 10)
                     {
+                        //비트 이동
                         numArr[i + 1] += (int)(numArr[i] / 10);
                         numArr[i] = numArr[i] % 10;
                     }
