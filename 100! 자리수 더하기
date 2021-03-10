@@ -1,0 +1,36 @@
+using System;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Solution
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numArr = new int[160];
+            numArr[0] = 1;
+            int sum = 0;
+
+            int num = 100;
+            while (num > 1)
+            {
+                for (int i = 0; i < numArr.Length; i++)
+                {
+                    numArr[i] *= num;
+                }
+                for (int i = 0; i < numArr.Length - 1; i++)
+                {
+                    if (numArr[i] >= 10)
+                    {
+                        numArr[i + 1] += (int)(numArr[i] / 10);
+                        numArr[i] = numArr[i] % 10;
+                    }
+                } num--;
+            }
+            foreach (var i in numArr)
+                sum += i;
+            Console.WriteLine(sum);
+        }
+    }
+}
